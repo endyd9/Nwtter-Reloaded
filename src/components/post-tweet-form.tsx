@@ -69,10 +69,10 @@ export default function PostTweetForm() {
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
     if (files && files.length === 1) {
-      console.log(files[0].size);
-
-      if (files[0].size > 1000000)
-        return alert("Photo size too big! \n plz under 1MB");
+      if (files[0].size > 1000000) {
+        event.target.value = "";
+        return alert("Photo size too big! \n you can upload under 1MB");
+      }
       setFile(files[0]);
     }
   };
