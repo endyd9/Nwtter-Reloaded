@@ -11,7 +11,7 @@ import { db } from "../firebase";
 import Tweet from "./tweet";
 import { Unsubscribe } from "firebase/auth";
 
-export interface Tweet {
+export interface ITweet {
   id: string;
   photo?: string;
   tweet: string;
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 `;
 
 export default function Timeline() {
-  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [tweets, setTweets] = useState<ITweet[]>([]);
 
   useEffect(() => {
     let unsubscribe: Unsubscribe | null = null;

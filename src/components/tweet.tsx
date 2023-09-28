@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Tweet } from "./timeline";
+import { ITweet } from "./timeline";
 import { auth, db, storage } from "../firebase";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import {
@@ -75,7 +75,7 @@ const EditButton = styled.button`
   margin-bottom: 5px;
 `;
 
-export default function Tweet({ userName, photo, tweet, uid, id }: Tweet) {
+export default function Tweet({ userName, photo, tweet, uid, id }: ITweet) {
   const [editMode, setEditMode] = useState(false);
   const [editTweet, setEditTweet] = useState(tweet);
   const [file, setFile] = useState<File | null>(null);
