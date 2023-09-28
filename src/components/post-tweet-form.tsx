@@ -9,7 +9,7 @@ const Form = styled.form`
   flex-direction: column;
   gap: 10px;
 `;
-const TextArea = styled.textarea`
+export const TextArea = styled.textarea`
   border: 2px solid white;
   padding: 20px;
   border-radius: 20px;
@@ -91,10 +91,7 @@ export default function PostTweetForm() {
         uid: user.uid,
       });
       if (file) {
-        const locationRef = ref(
-          storage,
-          `tweets/${user.uid}-${user.displayName}/${doc.id}`
-        );
+        const locationRef = ref(storage, `tweets/${user.uid}/${doc.id}`);
         const result = await uploadBytes(locationRef, file);
         const imgUrl = await getDownloadURL(result.ref);
         await updateDoc(doc, {
